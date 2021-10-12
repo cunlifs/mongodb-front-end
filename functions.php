@@ -25,8 +25,22 @@ function drawTable($people) {
 }
 
 function renderPerson($person) {
+    // Here we are using the database entry 'SEX' to represent Gender and implying pronouns (possibly incorrectly)
+    if ($person->SEX == 'M') {
+        $pronoun = 'He';
+        $descriptor = 'has';
+    } else if ($person->SEX == 'F') {
+        $pronoun = 'She';
+        $descriptor = 'has';
+    } else {
+        $pronoun = 'They';
+        $descriptor = 'have';
+    }
+
+    // We can calculate the total annual earnings of this individual
     $totalEarnings = $person->SALARY + $person->BONUS + $person->COMM;
 
+    // We calculate some figures based on dates
     $startdate = new DateTime($person->HIREDATE);
     $birthdate = new DateTime($person->BIRTHDATE);
     $todaydate = new DateTime('now');
@@ -35,13 +49,21 @@ function renderPerson($person) {
     $employmenttime = $todaydate->diff($startdate);
     $startage = $startdate->diff($birthdate);
 
+    // Here we present that information to the user
     echo '<h3 class="ds-heading-2 ds-col-10">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
-    <h4 class="ds-heading-3 ds-col-10">' . $person->JOB . '
+    <h4 class="ds-heading-3 ds-col-10">' . $person->JOB . ' </h4>
     <p class="ds-col-10 ds-margin-bottom-2">
-    ' . $person->FIRSTNME . ' is ' . $age->y . ' years old. <br />
-    They have worked here for ' . $employmenttime->y . ' years. <br />
-    They started when they were ' . $startage->y . ' years old.
+    ' . ucfirst(strtolower($person->FIRSTNME)) . ' is ' . $age->y . ' years old. <br />
+    ' . $pronoun . ' ' . $descriptor . ' worked here for ' . $employmenttime->y . ' years. <br />
+    ' . $pronoun . ' started at the age of ' . $startage->y . '.
     </p>
+    <h4 class="ds-heading-3 ds-col-10">Earnings</h4>
+    <div class="ds-table-container ds-col-10">
+    <table class="ds-table ds-table-compact ds-striped">
+    <tr><th>Annual Salary</th><th>Bonus</th><th>Commission</th></tr>
+    <tr><td>$' . $person->SALARY . '</td><td>$' . $person->BONUS . '</td><td>$' . $person->COMM . '</td></tr>
+    <tr><td>$nbsp</td><td>Total compensation:</td><td>$' . $totalEarnings . '</td></tr>
+    </table>
     ';
 }
 
