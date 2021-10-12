@@ -64,13 +64,7 @@ function renderPerson($person) {
     ' . ucfirst(strtolower($person->FIRSTNME)) . ' is ' . $age->y . ' years old. <br />
     ' . $pronoun . ' ' . $descriptor . ' worked here for ' . $employmenttime->y . ' years. <br />
     ' . $pronoun . ' started at the age of ' . $startage->y . '.
-    ';
-
-    if ($birthday == true) {
-        echo ''
-    }
-
-    echo '</p>
+    </p>
     <h4 class="ds-heading-3 ds-col-10">Earnings</h4>
     <div class="ds-table-container ds-col-10">
     <table class="ds-table ds-table-compact ds-col-5">
