@@ -39,8 +39,8 @@ function renderPerson($person) {
     <h4 class="ds-heading-3 ds-col-10">' . $person->JOB . '
     <p class="ds-col-10 ds-margin-bottom-2">
     ' . $person->FIRSTNME . ' is ' . $age->y . ' years old. <br />
-    They have worked here for ' . $employmenttime . ' years. <br />
-    They started when they were ' . $startage . ' years old.
+    They have worked here for ' . $employmenttime->y . ' years. <br />
+    They started when they were ' . $startage->y . ' years old.
     </p>
     ';
 }
