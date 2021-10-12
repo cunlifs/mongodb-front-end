@@ -50,7 +50,7 @@ function renderPerson($person) {
     $startage = $startdate->diff($birthdate);
 
     // Here we present that information to the user
-    echo '<div class="ds-hr-thick ds-dark"></div>
+    echo '<div class="ds-hr-thick ds-dark ds-col-10"></div>
     <h3 class="ds-heading-2 ds-col-10">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
     <h4 class="ds-heading-3 ds-col-10">' . $person->JOB . ' </h4>
     <p class="ds-col-10 ds-margin-bottom-2">
@@ -60,11 +60,11 @@ function renderPerson($person) {
     </p>
     <h4 class="ds-heading-3 ds-col-10">Earnings</h4>
     <div class="ds-table-container ds-col-10">
-    <table class="ds-table ds-table-compact">
+    <table class="ds-table ds-table-compact ds-col-5">
     <tr><th>Annual Salary</th><th>Bonus</th><th>Commission</th></tr>
     <tr><td class="ds-text-align-right">$' . $person->SALARY . '</td><td class="ds-text-align-right">$' . $person->BONUS . '</td><td class="ds-text-align-right">$' . $person->COMM . '</td></tr>
     <tr><td>&nbsp</td><td class="ds-text-align-right">Total compensation:</td><td class="ds-text-align-right">$' . $totalEarnings . '</td></tr>
-    </table>
+    </table><br />
     <div class="ds-hr-thick ds-dark"></div>
     ';
 }
