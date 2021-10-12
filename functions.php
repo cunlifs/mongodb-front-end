@@ -50,14 +50,14 @@ function renderPerson($person) {
     $startage = $startdate->diff($birthdate);
 
     // Present a message if it's this employee's birthday today
-    if ($birthdate->format(m) == $todaydate->format(m) && $birthdate->format(d) == $todaydate->format(d)) {
+    if ($birthdate->format('m') == $todaydate->format('m') && $birthdate->format('d') == $todaydate->format('d')) {
         echo '<div class="ds-col-10 ds-alert ds-success ds-mar-t-1">
         <p>Today is ' . $person->FIRSTNME . '\'s Birthday!</p>
         </div>';
     }
 
     // Here we present that information to the user
-    echo '<div class="ds-hr-thick ds-dark ds-col-10"></div>
+    echo '<div class="ds-col-10"><div class="ds-hr-thick ds-dark></div></div>
     <h3 class="ds-heading-2 ds-col-10">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
     <h4 class="ds-heading-3 ds-col-10">' . $person->JOB . ' </h4>
     <p class="ds-col-10 ds-margin-bottom-2">
