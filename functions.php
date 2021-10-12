@@ -2,9 +2,8 @@
 
 function drawLine($person) {
     echo '<tr>';
-    echo '<a href="employee.php?id=' . $person->EMPNO . '">';
-    echo '<td>' . $person->EMPNO . '</td>';
-    echo '<td>' . $person->FIRSTNME . '</td>';
+    echo '<td><a href="employee.php?id=' . $person->EMPNO . '">' . $person->EMPNO . '</a></td>';
+    echo '<a href="employee.php?id=' . $person->EMPNO . '"><td>' . $person->FIRSTNME . '</td></a>';
     echo '<td>' . $person->LASTNAME . '</td>';
     echo '<td>' . $person->JOB . '</td>';
     echo '<td>' . $person->DEPTNAME . '</td>';
