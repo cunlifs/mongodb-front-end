@@ -2,7 +2,7 @@
 
 function drawLine($person) {
     echo '<tr>';
-    echo '<a href="employee.php?id=' . $person->EMPNO . '">'
+    echo '<a href="employee.php?id=' . $person->EMPNO . '">';
     echo '<td>' . $person->EMPNO . '</td>';
     echo '<td>' . $person->FIRSTNME . '</td>';
     echo '<td>' . $person->LASTNAME . '</td>';
