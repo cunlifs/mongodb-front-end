@@ -53,8 +53,8 @@ function renderPerson($person) {
     if ($birthdate->m == $todaydate->m && $birthdate->d == $todaydate->d) {
         echo '<div class="ds-col-10 ds-alert ds-success ds-mar-t-1">
         <p>Today is ' . $person->FIRSTNME . '\'s Birthday!</p>
-        </div>'
-    };
+        </div>';
+    }
 
     // Here we present that information to the user
     echo '<div class="ds-hr-thick ds-dark ds-col-10"></div>
