@@ -25,10 +25,22 @@ function drawTable($people) {
 }
 
 function renderPerson($person) {
+    $totalEarnings = $person->SALARY + $person->BONUS + $person->COMM;
+
+    $startdate = new DateTime($person->HIREDATE);
+    $birthdate = new DateTime($person->BIRTHDATE);
+    $todaydate = new DateTime('now');
+
+    $age = $todaydate->diff($birthdate);
+    $employmenttime = $todaydate->diff($startdate);
+    $startage = $startdate->diff($birthdate);
+
     echo '<h3 class="ds-heading-2 ds-col-10">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
     <h4 class="ds-heading-3 ds-col-10">' . $person->JOB . '
     <p class="ds-col-10 ds-margin-bottom-2">
-    
+    ' . $person->FIRSTNME . ' is ' . $age->y . ' years old. <br />
+    They have worked here for ' . $employmenttime . ' years. <br />
+    They started when they were ' . $startage . ' years old.
     </p>
     ';
 }
