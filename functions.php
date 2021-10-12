@@ -61,8 +61,8 @@ function renderPerson($person) {
     <div class="ds-table-container ds-col-10">
     <table class="ds-table ds-table-compact ds-striped">
     <tr><th>Annual Salary</th><th>Bonus</th><th>Commission</th></tr>
-    <tr><td>$' . $person->SALARY . '</td><td>$' . $person->BONUS . '</td><td>$' . $person->COMM . '</td></tr>
-    <tr><td>$nbsp</td><td>Total compensation:</td><td>$' . $totalEarnings . '</td></tr>
+    <tr><td class="ds-text-align-right">$' . $person->SALARY . '</td><td class="ds-text-align-right">$' . $person->BONUS . '</td><td class="ds-text-align-right">$' . $person->COMM . '</td></tr>
+    <tr><td>&nbsp</td><td class="ds-text-align-right">Total compensation:</td><td class="ds-text-align-right">$' . $totalEarnings . '</td></tr>
     </table>
     ';
 }
