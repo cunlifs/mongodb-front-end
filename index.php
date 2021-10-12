@@ -3,6 +3,10 @@ require_once('functions.php');
 require_once('page-header.php');
 require('vendor/autoload.php');
 
+// This is the name of the service in OpenShift that connects to our API endpoint
+// Any dashes (-) should be converted to underscores (_)
+$apiInstanceName = 'DB2_READER_API';
+
 // Display title and description
 echo '<h2 class="ds-heading-1 ds-col-10">Company Info</h2>
 <p class="ds-col-10 ds-margin-bottom-2">Access information from our sample database that represents company data.</p>
@@ -11,10 +15,10 @@ echo '<h2 class="ds-heading-1 ds-col-10">Company Info</h2>
 // Collect the data from various endpoints
 
 // First, set the endpoint of our API instance
-$api_base_uri = 'http://' . $_ENV['DB2_READER_API_SERVICE_HOST'] . ':' . $_ENV['DB2_READER_API_SERVICE_PORT'];
+$apiBaseUri = 'http://' . $_ENV[$apiInstanceName.'_SERVICE_HOST'] . ':' . $_ENV[$apiInstanceName.'_SERVICE_PORT'];
 
 // Start with the employee information
-$rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$api_base_uri]);
+$rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
 $rperfresponse = $rperfclient->request('GET', 'getAllEmployees');
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
@@ -34,7 +38,7 @@ if ($jsonContent->success == 1) {
 
     // Now we can render our page
     echo '<h3 class="ds-heading-2 ds-col-10">Employees</h3>
-    <p class="ds-col-10 ds-margin-bottom-2">Here is a directory of all of our employees. Click on an entry to get more information about them.</p>
+    <p class="ds-col-10 ds-margin-bottom-2">Here is a directory of all of our employees. Click on an employee number to get more information about that individual.</p>
     ';
     drawTable($people);
 
