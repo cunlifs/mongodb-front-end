@@ -30,17 +30,6 @@ $jsonContent = json_decode($content, false);
 if ($jsonContent->success == 1) {
     $person = $jsonContent->data[0];
 
-    // Get the sales manual link
-    // $smclient = new GuzzleHttp\Client([ 'base_uri'=>'http://smfinder:8080/']);
-    // $smresponse = $smclient->request('GET', '?mtm=' . $modelType);
-    // $smurl = $smresponse->getBody();
-
-    // Then use that to get the dates
-    // $srclient = new GuzzleHttp\Client([ 'base_uri'=>'http://smreader:8080/']);
-    // $srresponse = $srclient->request('GET', '?url=' . $smurl);
-    // $srdetails = $srresponse->getBody();
-    // $dates = json_decode($srdetails,false);
-
     // Now we can render our page
     renderPerson($person);
 
@@ -52,7 +41,8 @@ if ($jsonContent->success == 1) {
 }
 
 // Include a way to return to the previous page
-echo '<h4 class="ds-heading-4 ds-col-10"><a href="index.php">&lt back to employee list</a></h4>
+echo '<br />
+<h4 class="ds-heading-4 ds-col-10"><a href="index.php">&lt back to employee list</a></h4>
 ';
 
 echo '</div>';
