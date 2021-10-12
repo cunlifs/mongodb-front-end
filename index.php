@@ -33,8 +33,8 @@ if ($jsonContent->success == 1) {
     // $dates = json_decode($srdetails,false);
 
     // Now we can render our page
-    echo '<h3>Employees</h3>
-    <p>Here is a directory of all of our employees. Click on an entry to get more information about them.</p>
+    echo '<h3 class="ds-heading-2 ds-col-10">Employees</h3>
+    <p class="ds-col-10 ds-margin-bottom-2">Here is a directory of all of our employees. Click on an entry to get more information about them.</p>
     ';
     drawTable($people);
 
