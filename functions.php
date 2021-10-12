@@ -49,6 +49,13 @@ function renderPerson($person) {
     $employmenttime = $todaydate->diff($startdate);
     $startage = $startdate->diff($birthdate);
 
+    // Present a message if it's this employee's birthday today
+    if ($birthdate->m == $todaydate->m && $birthdate->d == $todaydate->d) {
+        echo '<div class="ds-col-10 ds-alert ds-success ds-mar-t-1">
+        <p>Today is ' . $person->FIRSTNME . '\'s Birthday!</p>
+        </div>'
+    }
+
     // Here we present that information to the user
     echo '<div class="ds-hr-thick ds-dark ds-col-10"></div>
     <h3 class="ds-heading-2 ds-col-10">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
@@ -57,7 +64,13 @@ function renderPerson($person) {
     ' . ucfirst(strtolower($person->FIRSTNME)) . ' is ' . $age->y . ' years old. <br />
     ' . $pronoun . ' ' . $descriptor . ' worked here for ' . $employmenttime->y . ' years. <br />
     ' . $pronoun . ' started at the age of ' . $startage->y . '.
-    </p>
+    ';
+
+    if ($birthday == true) {
+        echo ''
+    }
+
+    echo '</p>
     <h4 class="ds-heading-3 ds-col-10">Earnings</h4>
     <div class="ds-table-container ds-col-10">
     <table class="ds-table ds-table-compact ds-col-5">
