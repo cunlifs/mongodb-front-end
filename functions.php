@@ -25,7 +25,12 @@ function drawTable($people) {
 }
 
 function renderPerson($person) {
-
+    echo '<h3 class="ds-heading-2 ds-col-10">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
+    <h4 class="ds-heading-3 ds-col-10">' . $person->JOB . '
+    <p class="ds-col-10 ds-margin-bottom-2">
+    
+    </p>
+    ';
 }
 
 function renderProduct($product) {

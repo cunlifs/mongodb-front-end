@@ -7,6 +7,10 @@ require('vendor/autoload.php');
 // Any dashes (-) should be converted to underscores (_)
 $apiInstanceName = 'DB2_READER_API';
 
+// Include a way to return to the previous page
+echo '<h4 class="ds-heading-4 ds-col-10"><a href="index.php">&lt back to employee list</a></h4>
+';
+
 // Display title and description
 echo '<h2 class="ds-heading-1 ds-col-10">Employee Info</h2>
 <p class="ds-col-10 ds-margin-bottom-2">Access information from our sample database that represents company data.</p>
@@ -37,20 +41,18 @@ if ($jsonContent->success == 1) {
     // $dates = json_decode($srdetails,false);
 
     // Now we can render our page
-    echo '<h3 class="ds-heading-2 ds-col-10">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
-    <h4 class="ds-heading-3 ds-col-10">' . $person->JOB . '
-    <p class="ds-col-10 ds-margin-bottom-2">
-    
-    </p>
-    ';
-    drawTable($people);
+    renderPerson($person);
 
-// If we don't have both machine type and model, provide instructions
+// If the lookup fails, provide information
 } else {
     echo '<div class="ds-pad-b-3">API call to look up employee has failed.
     ' . $jsonContent . '
     </div>';
 }
+
+// Include a way to return to the previous page
+echo '<h4 class="ds-heading-4 ds-col-10"><a href="index.php">&lt back to employee list</a></h4>
+';
 
 echo '</div>';
 
