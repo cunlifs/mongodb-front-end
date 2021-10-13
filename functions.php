@@ -69,24 +69,26 @@ function renderPerson($person) {
 
     // Here we present that information to the user
     echo '<div class="ds-col-10">
+    <div class="ds-hr-thick ds-dark"></div>
     <h3 class="ds-heading-2">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
     <div class="ds-hr-thick ds-dark"></div>
     <h4 class="ds-heading-3">' . $person->JOB . '</h4>
     <p class="ds-margin-bottom-2">&nbsp</p>
-    <p class="ds-col-10 ds-margin-bottom-2">
+    <p class="ds-margin-bottom-2">
     ' . $firstname . ' is ' . $age->y . ' years old. <br />
     ' . $pronoun . ' ' . $descriptor . ' worked here for ' . $employmenttime->y . ' years. <br />
     ' . $pronoun . ' started at the age of ' . $startage->y . '.
     </p>
-    <h4 class="ds-heading-3 ds-col-10">Earnings</h4>
-    <div class="ds-table-container ds-col-10">
-    <table class="ds-table ds-table-compact ds-col-5">
+    <h4 class="ds-heading-3">Earnings</h4>
+    <div class="ds-table-container">
+    <table class="ds-table ds-table-compact ds-col-6">
     <tr><th>Annual Salary</th><th>Bonus</th><th>Commission</th></tr>
     <tr><td class="ds-text-align-right">$' . $person->SALARY . '</td><td class="ds-text-align-right">$' . $person->BONUS . '</td><td class="ds-text-align-right">$' . $person->COMM . '</td></tr>
     <tr><td>&nbsp</td><td class="ds-text-align-right">Total compensation:</td><td class="ds-text-align-right">$' . $totalEarnings . '</td></tr>
     </table>
-    <p class="ds-col-10 ds-margin-bottom-2">&nbsp</p>
+    <p class="ds-margin-bottom-2">&nbsp</p>
     <div class="ds-hr-thick ds-dark"></div>
+    <p class="ds-margin-bottom-2">&nbsp</p>
     </div></div>
     ';
 }
