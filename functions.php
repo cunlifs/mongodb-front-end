@@ -62,17 +62,18 @@ function renderPerson($person) {
 
     // Present a message if it's this employee's birthday today
     if ($birthdate->format('m') == $todaydate->format('m') && $birthdate->format('d') == $todaydate->format('d')) {
-        echo '<div class="ds-col-6 ds-alert ds-success ds-mar-t-1">
+        echo '<div class="ds-row"><div class="ds-col-6 ds-alert ds-success ds-mar-t-1">
         <p>Today is ' . $firstname . '\'s Birthday!</p>
-        </div>';
+        </div></div>';
     }
 
     // Here we present that information to the user
-    echo '<div class="ds-col-6 ds-shadow-floating ds-bg-neutral-2">
-    <h3 class="ds-heading-2 ds-margin-top-2">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
+    echo '<div class="ds-row">
+    <div class="ds-col-6 ds-shadow-floating ds-bg-neutral-2">
+    <h3 class="ds-heading-2 ds-margin-t-2">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
     <div class="ds-hr-thick"></div>
-    <h4 class="ds-heading-3 ds-margin-bottom-2 ds-margin-top-2">' . $person->JOB . '</h4>
-    <p class="ds-margin-bottom-2">
+    <h4 class="ds-heading-3 ds-margin-t-b-2">' . $person->JOB . '</h4>
+    <p class="ds-margin-b-2">
     ' . $firstname . ' is ' . $age->y . ' years old. <br />
     ' . $pronoun . ' ' . $descriptor . ' worked here for ' . $employmenttime->y . ' years. <br />
     ' . $pronoun . ' started at the age of ' . $startage->y . '.
@@ -84,8 +85,8 @@ function renderPerson($person) {
     <tr><td class="ds-text-align-right">$' . $person->SALARY . '</td><td class="ds-text-align-right">$' . $person->BONUS . '</td><td class="ds-text-align-right">$' . $person->COMM . '</td></tr>
     <tr><td>&nbsp</td><td class="ds-text-align-right">Total compensation:</td><td class="ds-text-align-right">$' . $totalEarnings . '</td></tr>
     </table>
-    <p class="ds-margin-bottom-2">&nbsp</p>
-    </div></div>
+    <p class="ds-margin-b-2">&nbsp</p>
+    </div></div></div>
     ';
 }
 

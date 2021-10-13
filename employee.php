@@ -8,13 +8,14 @@ require('vendor/autoload.php');
 $apiInstanceName = 'DB2_READER_API';
 
 // Include a way to return to the previous page
-echo '<h4 class="ds-heading-4 ds-margin-top-2 ds-margin-bottom-2"><a href="index.php">&lt back to employee list</a></h4>
+echo '<h4 class="ds-heading-4 ds-margin-t-b-2"><a href="index.php">&lt back to employee list</a></h4>
 ';
 
 // Display title and description
-echo '<h2 class="ds-heading-1 ds-col-6">Employee Info</h2>
-<p class="ds-col-6 ds-margin-bottom-2">This information relates to the employee that you selected from the previous list.
+echo '<div class="ds-row"><h2 class="ds-heading-1 ds-col-6">Employee Info</h2>
+<p class="ds-col-6 ds-margin-b-2">This information relates to the employee that you selected from the previous list.
 We have called against another API endpoint to pull this data from our database.</p>
+</div>
 ';
 
 // Collect the data from various endpoints
@@ -35,14 +36,14 @@ if ($jsonContent->success == 1) {
 
 // If the lookup fails, provide information
 } else {
-    echo '<div class="ds-margin-top-2 ds-margin-bottom-2">API call to look up employee has failed.
+    echo '<div class="ds-margin-t-b-2">API call to look up employee has failed.
     ' . print_r($jsonContent) . '
     </div>';
 }
 
 // Include a way to return to the previous page
 echo '<br />
-<h4 class="ds-heading-4 ds-margin-top-2 ds-margin-bottom-2"><a href="index.php">&lt back to employee list</a></h4>
+<h4 class="ds-heading-4 ds-margin-t-b-2"><a href="index.php">&lt back to employee list</a></h4>
 ';
 
 // Add footer from template

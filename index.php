@@ -9,7 +9,7 @@ $apiInstanceName = 'DB2_READER_API';
 
 // Display title and description
 echo '<h2 class="ds-heading-1 ds-col-10">Company Info</h2>
-<p class="ds-col-10 ds-margin-bottom-2">Access information from our sample database that represents company data.</p>
+<p class="ds-col-10 ds-margin-b-2">Access information from our sample database that represents company data.</p>
 ';
 
 // Collect the data from various endpoints
@@ -38,17 +38,17 @@ if ($jsonContent->success == 1) {
 
     // Now we can render our page
     echo '<h3 class="ds-heading-2 ds-col-10">Employees</h3>
-    <p class="ds-col-10 ds-margin-bottom-2">Here is a directory of all of our employees. Click on an employee number to get more information about that individual.</p>
+    <p class="ds-col-10 ds-margin-b-2">Here is a directory of all of our employees. Click on an employee number to get more information about that individual.</p>
     ';
     drawTable($people);
 
 // If we don't have access to the API or database, provide instructions
 } else {
-    echo '<div class="ds-pad-b-3">API call to look up all employees has failed.
+    echo '<div class="ds-margin-t-b-2">API call to look up all employees has failed.
     ' . print_r($jsonContent) . '
     </div>';
 }
-echo '<p class="ds-col-10 ds-margin-bottom-2">&nbsp</p>';
+echo '<p class="ds-col-10 ds-margin-b-2">&nbsp</p>';
 
 // Add footer from template
 require_once('page-footer.php');
