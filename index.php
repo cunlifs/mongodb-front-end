@@ -42,13 +42,13 @@ if ($jsonContent->success == 1) {
     ';
     drawTable($people);
 
-// If we don't have both machine type and model, provide instructions
+// If we don't have access to the API or database, provide instructions
 } else {
     echo '<div class="ds-pad-b-3">API call to look up all employees has failed.
     ' . $jsonContent . '
     </div>';
 }
-
+echo '<p class="ds-col-10 ds-margin-bottom-2">&nbsp</p>';
 echo '</div>';
 
 // Add footer from template

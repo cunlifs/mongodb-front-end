@@ -16,6 +16,7 @@ echo '<h2 class="ds-heading-1 ds-col-10">Employee Info</h2>
 <p class="ds-col-10 ds-margin-bottom-2">This information relates to the employee that you selected from the previous list.
 We have called against another API endpoint to pull this data from our database.</p>
 ';
+echo '<p class="ds-col-10 ds-margin-bottom-2">&nbsp</p>';
 
 // Collect the data from various endpoints
 
@@ -45,6 +46,7 @@ echo '<br />
 <h4 class="ds-heading-4 ds-col-10"><a href="index.php">&lt back to employee list</a></h4>
 ';
 
+echo '<p class="ds-col-10 ds-margin-bottom-2">&nbsp</p>';
 echo '</div>';
 
 // Add footer from template
