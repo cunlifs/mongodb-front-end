@@ -47,7 +47,6 @@ echo '<br />
 ';
 
 echo '<p class="ds-col-10 ds-margin-bottom-2">&nbsp</p>';
-echo '</div>';
 
 // Add footer from template
 require_once('page-footer.php');

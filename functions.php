@@ -68,10 +68,11 @@ function renderPerson($person) {
     }
 
     // Here we present that information to the user
-    echo '<h3 class="ds-heading-2 ds-col-10">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
-    <div class="ds-hr-thick ds-dark ds-col-10"></div>
-    <h4 class="ds-heading-3 ds-col-10">' . $person->JOB . '</h4>
-    <p class="ds-col-10 ds-margin-bottom-2">&nbsp</p>
+    echo '<div class="ds-col-10">
+    <h3 class="ds-heading-2">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
+    <div class="ds-hr-thick ds-dark"></div>
+    <h4 class="ds-heading-3">' . $person->JOB . '</h4>
+    <p class="ds-margin-bottom-2">&nbsp</p>
     <p class="ds-col-10 ds-margin-bottom-2">
     ' . $firstname . ' is ' . $age->y . ' years old. <br />
     ' . $pronoun . ' ' . $descriptor . ' worked here for ' . $employmenttime->y . ' years. <br />
@@ -86,6 +87,7 @@ function renderPerson($person) {
     </table>
     <p class="ds-col-10 ds-margin-bottom-2">&nbsp</p>
     <div class="ds-hr-thick ds-dark"></div>
+    </div></div>
     ';
 }
 
