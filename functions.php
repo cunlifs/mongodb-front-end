@@ -68,10 +68,11 @@ function renderPerson($person) {
     }
 
     // Here we present that information to the user
-    echo '<div class="ds-col-10">
-    <div class="ds-hr-thick ds-dark"></div>
+    echo '<div class="ds-row ds-bg-neutral-2">
+    <div class="ds-col-6 ds-shadow-floating">
+    <div class="ds-hr-thick"></div>
     <h3 class="ds-heading-2">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
-    <div class="ds-hr-thick ds-dark"></div>
+    <div class="ds-hr-thick"></div>
     <h4 class="ds-heading-3">' . $person->JOB . '</h4>
     <p class="ds-margin-bottom-2">&nbsp</p>
     <p class="ds-margin-bottom-2">
@@ -81,15 +82,15 @@ function renderPerson($person) {
     </p>
     <h4 class="ds-heading-3">Earnings</h4>
     <div class="ds-table-container">
-    <table class="ds-table ds-table-compact ds-col-6">
+    <table class="ds-table ds-table-compact">
     <tr><th>Annual Salary</th><th>Bonus</th><th>Commission</th></tr>
     <tr><td class="ds-text-align-right">$' . $person->SALARY . '</td><td class="ds-text-align-right">$' . $person->BONUS . '</td><td class="ds-text-align-right">$' . $person->COMM . '</td></tr>
     <tr><td>&nbsp</td><td class="ds-text-align-right">Total compensation:</td><td class="ds-text-align-right">$' . $totalEarnings . '</td></tr>
     </table>
     <p class="ds-margin-bottom-2">&nbsp</p>
-    <div class="ds-hr-thick ds-dark"></div>
+    <div class="ds-hr-thick"></div>
     <p class="ds-margin-bottom-2">&nbsp</p>
-    </div></div>
+    </div></div></div>
     ';
 }
 
