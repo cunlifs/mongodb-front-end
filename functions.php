@@ -62,7 +62,7 @@ function renderPerson($person) {
 
     // Present a message if it's this employee's birthday today
     if ($birthdate->format('m') == $todaydate->format('m') && $birthdate->format('d') == $todaydate->format('d')) {
-        echo '<div class="ds-col-10 ds-alert ds-success ds-mar-t-1">
+        echo '<div class="ds-col-6 ds-alert ds-success ds-mar-t-1">
         <p>Today is ' . $firstname . '\'s Birthday!</p>
         </div>';
     }

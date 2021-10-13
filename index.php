@@ -45,7 +45,7 @@ if ($jsonContent->success == 1) {
 // If we don't have access to the API or database, provide instructions
 } else {
     echo '<div class="ds-pad-b-3">API call to look up all employees has failed.
-    ' . $jsonContent . '
+    ' . print_r($jsonContent) . '
     </div>';
 }
 echo '<p class="ds-col-10 ds-margin-bottom-2">&nbsp</p>';
