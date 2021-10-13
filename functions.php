@@ -14,7 +14,7 @@ function drawLine($person) {
 
 // This function produces the HTML to construct a table with a row for each of the people in the $people object
 function drawTable($people) {
-    echo '<div class="ds-table-container ds-col-10">
+    echo '<div class="ds-table-container ds-col-8">
     <table class="ds-table ds-table-compact ds-striped ds-hover">
     ';
     echo '<tr><th>Employee number</th><th>First name</th><th>Last name</th><th>Job title</th><th>Department</th></tr>
@@ -68,13 +68,10 @@ function renderPerson($person) {
     }
 
     // Here we present that information to the user
-    echo '<div class="ds-row ds-bg-neutral-2">
-    <div class="ds-col-6 ds-shadow-floating">
+    echo '<div class="ds-col-6 ds-shadow-floating ds-bg-neutral-2">
+    <h3 class="ds-heading-2 ds-margin-top-2">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
     <div class="ds-hr-thick"></div>
-    <h3 class="ds-heading-2">' . $person->FIRSTNME . ' ' . $person->MIDINIT . ' ' . $person->LASTNAME . '</h3>
-    <div class="ds-hr-thick"></div>
-    <h4 class="ds-heading-3">' . $person->JOB . '</h4>
-    <p class="ds-margin-bottom-2">&nbsp</p>
+    <h4 class="ds-heading-3 ds-margin-bottom-2 ds-margin-top-2">' . $person->JOB . '</h4>
     <p class="ds-margin-bottom-2">
     ' . $firstname . ' is ' . $age->y . ' years old. <br />
     ' . $pronoun . ' ' . $descriptor . ' worked here for ' . $employmenttime->y . ' years. <br />
@@ -88,9 +85,7 @@ function renderPerson($person) {
     <tr><td>&nbsp</td><td class="ds-text-align-right">Total compensation:</td><td class="ds-text-align-right">$' . $totalEarnings . '</td></tr>
     </table>
     <p class="ds-margin-bottom-2">&nbsp</p>
-    <div class="ds-hr-thick"></div>
-    <p class="ds-margin-bottom-2">&nbsp</p>
-    </div></div></div>
+    </div></div>
     ';
 }
 
