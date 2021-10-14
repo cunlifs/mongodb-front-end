@@ -98,6 +98,14 @@ function renderProduct($product) {
     echo '<div class="ds-shadow-floating ds-col-4 ds-mar-t-b-2 ds-mar-l-r-2">
     <h2 class="ds-heading-3">' . $product->NAME . '</h2>
     <p class="ds-mar-t-b-2">' . $description->details . '</p>';
+    
+    echo '<p class="ds-mar-t-b-2">$product->DESCRIPTION : ';
+    print_r($product->DESCRIPTION);
+    echo '</p><br />
+    <p class="ds-mar-t-b-2">$description : ';
+    print_r($description);
+    echo '</p>';
+
     if ($description->weight) {
         echo '<p class="ds-mar-t-b-2">Weight: ' . $description->weight . '</p>';
     }
