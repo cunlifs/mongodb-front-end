@@ -5,7 +5,7 @@ require('vendor/autoload.php');
 
 // This is the name of the service in OpenShift that connects to our API endpoint
 // Any dashes (-) should be converted to underscores (_)
-$apiInstanceName = 'DB2_READER_API';
+$apiInstanceName = $_ENV['DB2_API_SERVICE_NAME'] || 'DB2_READER_API';
 
 // Display title and description
 echo '<h2 class="ds-heading-1 ds-col-10">Company Info</h2>

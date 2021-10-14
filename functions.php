@@ -91,14 +91,26 @@ function renderPerson($person) {
 }
 
 function renderProduct($product) {
-    echo '<div class="ds-table-container ds-col-10">
-    <table class="ds-table ds-table-compact ds-striped">
+    // Handle the XML content to make it an object in PHP
+    $description = new SimpleXMLElement($product->DESCRIPTION);
+
+    // Render our page with the name, details, and price of the product
+    echo '<div class="ds-shadow-floating ds-col-4 ds-mar-t-b-2 ds-mar-l-r-2">
+    <h2 class="ds-heading-3">' . $product->NAME . '</h2>
+    <p class="ds-mar-t-b-2">' . $description->details . '</p>';
+    if ($description->weight) {
+        echo '<p class="ds-mar-t-b-2">Weight: ' . $description->weight . '</p>';
+    }
+    echo '<h3 class="ds-heading-4 ds-text-align-right">$' . $product->PRICE . '</h3>
     ';
-    echo '<tr><th>Announcement</th><th>General Availability</th><th>Withdrawn from Marketing</th><th>End of Support</th></tr>
-    ';
-    echo '<tr><td>' . $dates->announce . '</td><td>' . $dates->available . '</td><td>' . $dates->wdfm . '</td><td>' . $dates->eos . '</td></tr>
-    ';
-    echo '</table></div>';
+    echo '</div>';
+}
+
+function drawProducts($products) {
+    // Iterate through the products in the array and render each
+    foreach($products as $product) {
+        renderProduct($product);
+    }
 }
 
 ?>
