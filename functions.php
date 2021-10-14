@@ -97,13 +97,13 @@ function renderProduct($product) {
     // Render our page with the name, details, and price of the product
     echo '<div class="ds-shadow-floating ds-col-4 ds-mar-t-b-2 ds-mar-l-r-2">
     <h2 class="ds-heading-3">' . $product->NAME . '</h2>
-    <p class="ds-mar-t-b-2">' . $description->product->description->details . '</p>';
+    <p class="ds-mar-t-b-2">' . $description->description->details . '</p>';
     
-    echo '<p class="ds-mar-t-b-2">$product->DESCRIPTION->details : ';
-    print_r($product->DESCRIPTION->details);
+    echo '<p class="ds-mar-t-b-2">$product->DESCRIPTION->description->details : ';
+    print_r($product->DESCRIPTION->description->details);
     echo '</p><br />
-    <p class="ds-mar-t-b-2">$description->product->description->details : ';
-    print_r($description->product->description->details);
+    <p class="ds-mar-t-b-2">$description->description->details : ';
+    print_r($description->description->details);
     echo '</p>';
 
     if ($description->weight) {
