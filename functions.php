@@ -95,21 +95,17 @@ function renderProduct($product) {
     $description = simplexml_load_string($product->DESCRIPTION);
 
     // Render our page with the name, details, and price of the product
-    echo '<div class="ds-shadow-floating ds-col-4 ds-mar-t-b-2 ds-mar-l-r-2">
+    echo '<div class="ds-shadow-floating ds-col-4 ds-mar-t-b-2 ds-mar-l-r-2 ds-bg-neutral-2">
     <h2 class="ds-heading-3">' . $product->NAME . '</h2>
     <p class="ds-mar-t-b-2">' . $description->description->details . '</p>';
-    
-    echo '<p class="ds-mar-t-b-2">$product->DESCRIPTION->description->details : ';
-    print_r($product->DESCRIPTION->description->details);
-    echo '</p><br />
-    <p class="ds-mar-t-b-2">$description->description->details : ';
-    print_r($description->description->details);
-    echo '</p>';
 
-    if ($description->weight) {
-        echo '<p class="ds-mar-t-b-2">Weight: ' . $description->weight . '</p>';
+    // Only present the weight of the item if one is included in the listing
+    if ($description->description->weight) {
+        echo '<p class="ds-mar-t-b-2">Weight: ' . $description->description->weight . '</p>';
     }
-    echo '<h3 class="ds-heading-4 ds-text-align-right">$' . $product->PRICE . '</h3>
+
+    // Add the price to the bottom of the listing
+    echo '<h3 class="ds-heading-3 ds-text-align-right">$' . $product->PRICE . '</h3>
     ';
     echo '</div>';
 }
