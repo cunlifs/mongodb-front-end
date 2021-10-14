@@ -92,7 +92,7 @@ function renderPerson($person) {
 
 function renderProduct($product) {
     // Handle the XML content to make it an object in PHP
-    $description = new SimpleXMLElement($product->DESCRIPTION);
+    $description = simplexml_load_string($product->DESCRIPTION);
 
     // Render our page with the name, details, and price of the product
     echo '<div class="ds-shadow-floating ds-col-4 ds-mar-t-b-2 ds-mar-l-r-2">

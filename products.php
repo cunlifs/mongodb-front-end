@@ -5,13 +5,12 @@ require('vendor/autoload.php');
 
 // This is the name of the service in OpenShift that connects to our API endpoint
 // Any dashes (-) should be converted to underscores (_)
+// We pull this in from an environment varaible if set, otherwise using the default
 if ($_ENV['DB2_API_SERVICE_NAME']) {
     $apiInstanceName = $_ENV['DB2_API_SERVICE_NAME'];
 } else {
     $apiInstanceName = 'DB2_READER_API';
 }
-echo '<div class="ds-col-6 ds-alert ds-success ds-mar-t-1">API Instance Name:' . $apiInstanceName . '</div>';
-
 
 // Include a way to return to the previous page
 echo '<h4 class="ds-heading-4 ds-margin-t-b-2"><a href="index.php">&lt back to employee list</a></h4>
@@ -29,7 +28,6 @@ including some XML formatted data.</p>
 
 // First, set the endpoint of our API instance
 $apiBaseUri = 'http://' . $_ENV[$apiInstanceName.'_SERVICE_HOST'] . ':' . $_ENV[$apiInstanceName.'_SERVICE_PORT'];
-echo '<div class="ds-col-6 ds-alert ds-success ds-mar-t-1">API Base URL:' . $apiBaseUri . '</div>';
 
 // Start with the product information
 $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
