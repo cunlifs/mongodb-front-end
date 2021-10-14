@@ -107,7 +107,7 @@ function renderProduct($product) {
     }
 
     // Add the price to the bottom of the listing
-    echo '<h3 class="ds-heading-3 ds-text-align-right">$' . $product->PRICE . '</h3>
+    echo '<h3 class="ds-heading-3 ds-text-align-right">$' . number_format($product->PRICE) . '</h3>
     ';
     echo '</div>';
 }
