@@ -2,23 +2,15 @@
 require_once('functions.php');
 require_once('page-header.php');
 require('vendor/autoload.php');
-
-// This is the name of the service in OpenShift that connects to our API endpoint
-// Any dashes (-) should be converted to underscores (_)
-// We pull this in from an environment varaible if set, otherwise using the default
-if ($_ENV['DB2_API_SERVICE_NAME']) {
-    $apiInstanceName = $_ENV['DB2_API_SERVICE_NAME'];
-} else {
-    $apiInstanceName = 'DB2_READER_API';
-}
+require('connection.php');
 
 // Include a way to return to the previous page
 echo '<h4 class="ds-heading-4 ds-margin-t-b-2"><a href="index.php">&lt back to employee list</a></h4>
 ';
 
 // Display title and description
-echo '<div class="ds-row"><h2 class="ds-heading-1 ds-col-6">Product Info</h2>
-<p class="ds-col-6 ds-margin-b-2">This information relates to the products that are listed in the Db2 database running
+echo '<div class="ds-row"><h2 class="ds-heading-1">Product Info</h2>
+<p class="ds-margin-b-2">This information relates to the products that are listed in the Db2 database running
 on AIX that we are connected to. These are in the PRODUCTS table of the sample database, and contain a mix of information
 including some XML formatted data.</p>
 </div>
@@ -26,10 +18,7 @@ including some XML formatted data.</p>
 
 // Collect the data from various endpoints
 
-// First, set the endpoint of our API instance
-$apiBaseUri = 'http://' . $_ENV[$apiInstanceName.'_SERVICE_HOST'] . ':' . $_ENV[$apiInstanceName.'_SERVICE_PORT'];
-
-// Start with the product information
+// Start with the product information - we use the API endpoint /getProducts
 $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
 $rperfresponse = $rperfclient->request('GET', 'getProducts' . $_GET['id']);
 $content = $rperfresponse->getBody();
@@ -38,6 +27,7 @@ if ($jsonContent->success == 1) {
     $products = $jsonContent->data;
 
     // Now we can render our page
+    // The drawProducts function can be found in functions.php
     echo '<div class="ds-margin-t-b-2">';
     drawProducts($products);
     echo '</div>';

@@ -21,14 +21,15 @@ function drawTable($people) {
     ';
     // Iterate over the set of people and create a row in the table
     foreach($people as $person) {
+        // We call the drawLine function for each $person in $people
         drawLine($person);
     }
     echo '</table></div>
     ';
 }
 
+// This function produces the HTML to construct a listing for a single individual using data held in the $person object
 function renderPerson($person) {
-    
     // The following steps demonstrate that the data coming back from the API calls to the database can be manipulated
     // within the front-end code to provide further insights and more detail to the end user.
     // We are not limited to using just the data that comes from our API calls.
@@ -90,6 +91,7 @@ function renderPerson($person) {
     ';
 }
 
+// This function creates the HTML to construct a tile for each product using data in $product
 function renderProduct($product) {
     // Handle the XML content to make it an object in PHP
     $description = simplexml_load_string($product->DESCRIPTION);
@@ -110,6 +112,7 @@ function renderProduct($product) {
     echo '</div>';
 }
 
+// This function creates tiles for each of the products in $products
 function drawProducts($products) {
     // Iterate through the products in the array and render each
     foreach($products as $product) {

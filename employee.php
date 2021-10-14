@@ -2,15 +2,7 @@
 require_once('functions.php');
 require_once('page-header.php');
 require('vendor/autoload.php');
-
-// This is the name of the service in OpenShift that connects to our API endpoint
-// Any dashes (-) should be converted to underscores (_)
-// We pull this in from an environment varaible if set, otherwise using the default
-if ($_ENV['DB2_API_SERVICE_NAME']) {
-    $apiInstanceName = $_ENV['DB2_API_SERVICE_NAME'];
-} else {
-    $apiInstanceName = 'DB2_READER_API';
-}
+require('connection.php');
 
 // Include a way to return to the previous page
 echo '<h4 class="ds-heading-4 ds-margin-t-b-2"><a href="index.php">&lt back to employee list</a></h4>
@@ -25,10 +17,7 @@ We have called against another API endpoint to pull this data from our database.
 
 // Collect the data from various endpoints
 
-// First, set the endpoint of our API instance
-$apiBaseUri = 'http://' . $_ENV[$apiInstanceName.'_SERVICE_HOST'] . ':' . $_ENV[$apiInstanceName.'_SERVICE_PORT'];
-
-// Start with the employee information
+// Start with the employee information - we use the API endpoint /getEmployee
 $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
 $rperfresponse = $rperfclient->request('GET', 'getEmployee?id=' . $_GET['id']);
 $content = $rperfresponse->getBody();
@@ -36,7 +25,8 @@ $jsonContent = json_decode($content, false);
 if ($jsonContent->success == 1) {
     $person = $jsonContent->data[0];
 
-    // Now we can render our page
+    // Now we can render our page using that data
+    // The remderPerson function can be found in functions.php
     renderPerson($person);
 
 // If the lookup fails, provide information
