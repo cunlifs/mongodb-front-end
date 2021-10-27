@@ -2,6 +2,6 @@
     "name": "front-end/app",
     "description": "Present data from Db2 database",
     "require": {
-       "guzzlehttp/guzzle": "^7.0"
+       "guzzlehttp/guzzle": "^5"
     }
  }
