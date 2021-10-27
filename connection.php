@@ -10,7 +10,7 @@ if ($_ENV['DB2_API_SERVICE_NAME']) {
 }
 
 // Here we set the endpoint of our API instance
-$apiBaseUri = 'http://' . $_ENV[$apiInstanceName.'_SERVICE_HOST'] . ':' . $_ENV[$apiInstanceName.'_SERVICE_PORT'];
+$apiBaseUri = 'http://' . $_ENV[$apiInstanceName.'_SERVICE_HOST'] . $_ENV[$apiInstanceName.'_SERVICE_PORT'];
 
 // This varaiable $apiBaseUri can then be used in all the pages
 
