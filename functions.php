@@ -7,7 +7,7 @@ function drawLine($listing) {
     echo '<td>' . $listing->name . '</td>';
     echo '<td>' . $listing->host_name . '</td>';
     echo '<td>' . $listing->host_location . '</td>';
-    echo '<td>' . $person->property_type . '</td>';
+    echo '<td>' . $listing->property_type . '</td>';
     echo '</tr>
     ';
 }
