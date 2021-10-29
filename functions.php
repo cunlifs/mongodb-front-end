@@ -1,35 +1,35 @@
 <?php
 
-// This function takes the details of a $person and creates a row in a table with that information
-function drawLine($person) {
+// This function takes the details of a $listing and creates a row in a table with that information
+function drawLine($listing) {
     echo '<tr>';
-    echo '<td><a href="employee.php?id=' . $person->EMPNO . '">' . $person->EMPNO . '</a></td>';
-    echo '<td>' . $person->FIRSTNME . '</td>';
-    echo '<td>' . $person->LASTNAME . '</td>';
-    echo '<td>' . $person->JOB . '</td>';
-    echo '<td>' . $person->DEPTNAME . '</td>';
+    echo '<td><a href="listing.php?id=' . $listing->id . '">' . $listing->id . '</a></td>';
+    echo '<td>' . $listing->name . '</td>';
+    echo '<td>' . $listing->host_name . '</td>';
+    echo '<td>' . $listing->host_location . '</td>';
+    echo '<td>' . $person->property_type . '</td>';
     echo '</a></tr>
     ';
 }
 
-// This function produces the HTML to construct a table with a row for each of the people in the $people object
-function drawTable($people) {
+// This function produces the HTML to construct a table with a row for each of the listings in the $listing object
+function drawTable($listings) {
     echo '<div class="ds-table-container ds-col-8">
     <table class="ds-table ds-table-compact ds-striped ds-hover">
     ';
-    echo '<tr><th>Employee number</th><th>First name</th><th>Last name</th><th>Job title</th><th>Department</th></tr>
+    echo '<tr><th> ID </th><th> Property Name</th><th>Host Name</th><th>Host Location</th><th>Property Type</th></tr>
     ';
-    // Iterate over the set of people and create a row in the table
-    foreach($people as $person) {
-        // We call the drawLine function for each $person in $people
-        drawLine($person);
+    // Iterate over the set of listings and create a row in the table
+    foreach($listing as $listings) {
+        // We call the drawLine function for each $listing in $listings
+        drawLine($listing);
     }
     echo '</table></div>
     ';
 }
 
-// This function produces the HTML to construct a listing for a single individual using data held in the $person object
-function renderPerson($person) {
+// This function produces the HTML to construct a listing for a single property using data held in the $listing object
+function renderListing($listing) {
     // The following steps demonstrate that the data coming back from the API calls to the database can be manipulated
     // within the front-end code to provide further insights and more detail to the end user.
     // We are not limited to using just the data that comes from our API calls.
