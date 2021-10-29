@@ -28,6 +28,9 @@ function drawTable($listings) {
     ';
 }
 
+////------- below unedited, will investigate once the above is confirmed to work
+
+
 // This function produces the HTML to construct a listing for a single property using data held in the $listing object
 function renderListing($listing) {
     // The following steps demonstrate that the data coming back from the API calls to the database can be manipulated
