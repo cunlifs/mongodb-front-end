@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Language" content="EN" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="https://www.ibm.com/favicon.ico" />
-    <title>Sample Company information</title>
+    <title>Sample Airbnb Listings</title>
     <link rel="stylesheet" href="https://w3.ibm.com/w3ds/cdn/latest/w3ds.css" type="text/css">
     </head>
   <body class="ds-has-sticky-footer">
