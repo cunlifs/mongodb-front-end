@@ -20,7 +20,7 @@ function drawTable($listings) {
     echo '<tr><th> ID </th><th> Property Name</th><th>Host Name</th><th>Host Location</th><th>Property Type</th></tr>
     ';
     // Iterate over the set of listings and create a row in the table
-    foreach($listing as $listings) {
+    foreach($listings as $listing) {
         // We call the drawLine function for each $listing in $listings
         drawLine($listing);
     }
