@@ -1,6 +1,6 @@
 {
     "name": "front-end/app",
-    "description": "Present data from Db2 database",
+    "description": "Present data from MongoDB database",
     "require": {
        "guzzlehttp/guzzle": "^7"
     }
