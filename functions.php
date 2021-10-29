@@ -17,7 +17,7 @@ function drawTable($listings) {
     echo '<div class="ds-table-container ds-col-8">
     <table class="ds-table ds-table-compact ds-striped ds-hover">
     ';
-    echo '<tr><th> ID </th><th> Property Name</th><th>Host Name</th><th>Host Location</th><th>Property Type</th></tr>
+    echo '<tr><th>ID</th><th>Name</th><th>Host name</th><th>Host location</th><th>Property type</th></tr>
     ';
     // Iterate over the set of listings and create a row in the table
     foreach($listings as $listing) {
