@@ -17,7 +17,7 @@ $rperfresponse = $rperfclient->request('GET', 'findall');
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
 if ($jsonContent->success == 1) {
-    $people = $jsonContent->data;
+    $listings = $jsonContent->data;
 
     // Now we can render our page
     echo '<h3 class="ds-heading-2 ds-col-10">Listings</h3>
