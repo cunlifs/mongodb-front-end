@@ -23,7 +23,7 @@ $rperfresponse = $rperfclient->request('GET', 'findall?id=' . $_GET['id']);
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
 if ($jsonContent->success == 1) {
-    $person = $jsonContent->data[0];
+    $listing = $jsonContent->data[0];
 
     // Now we can render our page using that data
     // The renderListing function can be found in functions.php
