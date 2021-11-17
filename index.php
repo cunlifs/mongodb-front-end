@@ -28,7 +28,7 @@ if ($jsonContent->success == 1) {
 
 // If we don't have access to the API or database, provide information
 } else {
-    echo '<div class="ds-margin-t-b-2">API call to look up all listings has failed.
+    echo '<div class="ds-margin-t-b-2">API call to look up all listings has failed (index.php).
     ' . print_r($jsonContent) . '
     </div>';
 }
