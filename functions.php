@@ -28,4 +28,35 @@ function drawTable($listings) {
     ';
 }
 
+// This function produces the HTML to construct a listing for a single property using data held in the $listing object
+function renderListing($listing) {
+    // The following steps demonstrate that the data coming back from the API calls to the database can be manipulated
+    // within the front-end code to provide further insights and more detail to the end user.
+    // We are not limited to using just the data that comes from our API calls.
+
+    // Create a nicely formatted version of the listing name, neighbourhood, property type and host's first name
+    $propertyName = ucfirst(strtolower($listing->name));
+    $neighborhood = ucfirst(strtolower($listing->neighborhood));
+    $propertyType = ucfirst(strtolower($listing->property_type));
+    $hostName = ucfirst(strtolower($listing->host_name));
+
+    // Here we present that information to the user
+    echo '<div class="ds-row">
+    <div class="ds-col-6 ds-shadow-floating ds-bg-neutral-2">
+    <h3 class="ds-heading-2 ds-margin-t-2">' . $listing->name . ' </h3>
+    <div class="ds-hr-thick"></div>
+    <p class="ds-margin-b-2">
+    ' . $neighborhood . '<br />
+    ' . $propertyType . '<br />
+    ' . $hostName . ' 
+    </p>
+    
+    <p class="ds-margin-b-2">&nbsp</p>
+    </div></div></div>
+    ';
+}
+
+
+
+
 ?>
