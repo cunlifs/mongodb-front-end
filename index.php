@@ -5,7 +5,7 @@ require('vendor/autoload.php');
 require('connection.php');
 
 // Display title and description
-echo '<h2 class="ds-heading-1 ds-col-10">Chicago Airbnb Listing Information</h2>
+echo '<h2 class="ds-heading-1 ds-col-10">Chicago Airbnb Listing Info</h2>
 <p class="ds-col-10 ds-margin-b-2">Access information from our sample database that represents Airbnb listing data.</p>
 ';
 
