@@ -17,9 +17,9 @@ We have called against another API endpoint to pull this data from our database.
 
 // Collect the data from various endpoints
 
-// Start with the listing information - we use the API endpoint /findall
+// Start with the listing information - we use the API endpoint 
 $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
-$rperfresponse = $rperfclient->request('GET', 'findall?id=' . $_GET['id']);
+$rperfresponse = $rperfclient->request('GET', 'findListings');
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
 if ($jsonContent->success == 1) {
