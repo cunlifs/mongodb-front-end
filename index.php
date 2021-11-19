@@ -17,6 +17,7 @@ $rperfresponse = $rperfclient->request('GET', 'findId');
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
 print_r($jsonContent); //print the array for testing purposes.
+print_r("The above array is what I want to render in a table below.");
 
 /*if ($jsonContent->success == 1) {
     $listings = $jsonContent->data;
