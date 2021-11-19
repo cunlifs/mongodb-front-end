@@ -4,7 +4,7 @@
 function drawLine($listing) {
     echo '<tr>';
     echo '<td><a href="listing.php?id=' . $listing->id . '">' . $listing->id . '</a></td>';
-    echo '<td>' . $listing['host_id'] . '</td>';
+    echo '<td>' . $listing->host_id . '</td>';
     echo '</tr>
     ';
 }
