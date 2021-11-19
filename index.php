@@ -16,8 +16,21 @@ $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
 $rperfresponse = $rperfclient->request('GET', 'findId');
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
+
+//create table to display array
+$html = "<table>";
+foreach($jsonContent as $row) {
+    $html .= "<tr>";
+    foreach ($row as $cell) {
+        $html .= "<td>" . $cell . "</td>";
+    }
+    $html .= "</tr>";
+}
+$html .= "</table>";
+//tests----------------------------
 print_r($jsonContent); //print the array for testing purposes.
 print_r("The above array is what I want to render in a table below.");
+//--------------------------------------
 
 /*if ($jsonContent->success == 1) {
     $listings = $jsonContent->data;
