@@ -16,15 +16,10 @@ $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
 $rperfresponse = $rperfclient->request('GET', 'findId');
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
-drawTable($jsonContent);
+//drawTable($jsonContent);
 
-//tests----------------------------
-//print_r($jsonContent); //print the array for testing purposes.
-print_r("The above array is what I want to render in a table below.");
-//--------------------------------------
-
-/*if ($jsonContent->success == 1) {
-    $listings = $jsonContent->data;
+if ($jsonContent->success == 1) {
+    $listings = $jsonContent->data[];
 
     // Now we can render our page
     echo '<h3 class="ds-heading-2 ds-col-10">Listings</h3>
@@ -38,7 +33,7 @@ print_r("The above array is what I want to render in a table below.");
     echo '<div class="ds-margin-t-b-2">API call to look up all listings has failed (index.php).
     ' . print_r($jsonContent) . '
     </div>';
-}*/
+}
 echo '<p class="ds-col-10 ds-margin-b-2">&nbsp</p>';
 
 // Add footer from template
