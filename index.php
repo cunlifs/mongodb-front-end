@@ -16,6 +16,7 @@ $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
 $rperfresponse = $rperfclient->request('GET', 'findId');
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
+print_r($jsonContent); //print the array for testing purposes.
 if ($jsonContent->success == 1) {
     $listings = $jsonContent->data;
 
