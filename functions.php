@@ -3,7 +3,7 @@
 // This function takes the details of a $listing and creates a row in a table with that information
 function drawLine($listing) {
     echo '<tr>';
-    echo '<td><a href="listing.php?id=' . $listing['id'] . '">' . $listing['id'] . '</a></td>';
+    echo '<td><a href="listing.php?id=' . $listing->id . '">' . $listing->id . '</a></td>';
     echo '<td>' . $listing['host_id'] . '</td>';
     echo '</tr>
     ';
