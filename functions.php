@@ -56,9 +56,18 @@ function renderListing($listing) {
     <h3 class="ds-heading-2 ds-margin-t-2">' . $listing->name . ' </h3>
     <div class="ds-hr-thick"></div>
     <p class="ds-margin-b-2">
+    ' . $propertyName . '<br />
+    ' . $description . '<br />
     ' . $neighborhood . '<br />
     ' . $propertyType . '<br />
-    ' . $hostName . ' 
+    ' . $bathrooms . '<br />
+    ' . $bedrooms . '<br />
+    ' . $beds . '<br />
+    ' . $price . '<br />
+    ' . $hostName . '<br />
+    ' . $hostSince . '<br />
+    ' . $hostAbout . '<br />
+    ' . $hostResponseRate . ' 
     </p>
     
     <p class="ds-margin-b-2">&nbsp</p>
