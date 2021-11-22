@@ -22,8 +22,10 @@ $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
 $rperfresponse = $rperfclient->request('GET', 'findall?id=' . $_GET['id']);
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
-print_r($jsonContent);
-print_r("I want the info above represented in a nice format.");
+// Now we can render our page using that data
+// The renderListing function can be found in functions.php
+renderListing($jsonContent);
+
 /*if ($jsonContent->success == 1) {
     $listing = $jsonContent->data[0];
 
