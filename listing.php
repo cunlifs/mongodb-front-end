@@ -24,10 +24,10 @@ $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
 // Now we can render our page using that data
 // The renderListing function can be found in functions.php
-//renderListing($jsonContent);
-print_r($jsonContent);
+renderListing($jsonContent);
 
-print_r("I want to render the above arrary properly.");
+//print_r("I want to render the below arrary properly.");
+//print_r($jsonContent);
 
 /*if ($jsonContent->success == 1) {
     $listing = $jsonContent->data[0];
