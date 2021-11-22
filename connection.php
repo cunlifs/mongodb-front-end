@@ -6,7 +6,7 @@
 if ($_ENV['MONGODB_API_SERVICE_NAME']) {
     $apiInstanceName = $_ENV['MONGODB_API_SERVICE_NAME'];
 } else {
-    $apiInstanceName = 'MONGODB_READER_API';
+    $apiInstanceName = 'MONGO-APP-NODE';
 }
 
 // Here we set the endpoint of our API instance
