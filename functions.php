@@ -55,6 +55,7 @@ function renderListing($listing) {
     <div class="ds-col-6 ds-shadow-floating ds-bg-neutral-2">
     <h3 class="ds-heading-2 ds-margin-t-2">' . $listing->name . ' </h3>
     <div class="ds-hr-thick"></div>
+    <h4 class="ds-heading-3 ds-margin-t-b-2">' . $listing->review_scores_value . '</h4>
     <p class="ds-margin-b-2">
     ' . $propertyName . '<br />
     ' . $description . '<br />
@@ -64,12 +65,14 @@ function renderListing($listing) {
     ' . $bedrooms . '<br />
     ' . $beds . '<br />
     ' . $price . '<br />
-    ' . $hostName . '<br />
-    ' . $hostSince . '<br />
-    ' . $hostAbout . '<br />
-    ' . $hostResponseRate . ' 
     </p>
-    
+    <h4 class="ds-heading-3">Host Info</h4>
+    <div class="ds-table-container">
+    <table class="ds-table ds-table-compact">
+    <tr><th>Host\'s Name</th><th>Host Since</th><th>About</th></tr>
+        <tr><td class="ds-text-align-right">$' . $listing->host_name . '</td><td class="ds-text-align-right">$' . $listing->host_since . '</td><td class="ds-text-align-right">$' . $listing->host_about . '</td></tr>
+            <tr><td>&nbsp</td><td class="ds-text-align-right">Response Rate:</td><td class="ds-text-align-right">$' . $hostResponseRate . '</td></tr>
+    </table>  
     <p class="ds-margin-b-2">&nbsp</p>
     </div></div></div>
     ';
