@@ -22,14 +22,8 @@ $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
 $rperfresponse = $rperfclient->request('GET', 'findListingInfo?id=' . $_GET['id']);
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
-// Now we can render our page using that data
-// The renderListing function can be found in functions.php
-renderListing($jsonContent);
 
-//print_r("I want to render the below arrary properly.");
-//print_r($jsonContent);
-
-/*if ($jsonContent->success == 1) {
+if ($jsonContent->success == 1) {
     $listing = $jsonContent->data[0];
 
     // Now we can render our page using that data
@@ -41,7 +35,7 @@ renderListing($jsonContent);
     echo '<div class="ds-margin-t-b-2">API call to look up listing has failed.
     ' . print_r($jsonContent) . '
     </div>';
-}*/
+}
 
 // Include a way to return to the previous page
 echo '<br />
