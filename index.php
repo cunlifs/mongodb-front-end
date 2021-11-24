@@ -16,6 +16,8 @@ $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
 $rperfresponse = $rperfclient->request('GET', 'findall');
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
+$listing = $jsonContent[0];
+renderListing($listing);
 
     // Now we can render our page
 echo '<h3 class="ds-heading-2 ds-col-10">Listings</h3>
