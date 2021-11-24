@@ -33,49 +33,40 @@ function renderListing($listing) {
     // The following steps demonstrate that the data coming back from the API calls to the database can be manipulated
     // within the front-end code to provide further insights and more detail to the end user.
     // We are not limited to using just the data that comes from our API calls.
-
-    // Create a nicely formatted version of the listing info
-    //property
-    $propertyName = ucfirst(strtolower($listing->name));
-    $description = ucfirst(strtolower($listing->description));
-    $neighborhood = ucfirst(strtolower($listing->neighborhood_overview));
-    $propertyType = ucfirst(strtolower($listing->property_type));
-    $bathrooms = ucfirst(strtolower($listing->bathrooms_text));
-    $bedrooms = ucfirst(strtolower($listing->bedrooms));
-    $beds = ucfirst(strtolower($listing->beds));
-    $price = ucfirst(strtolower($listing->price));
-    //host
-    $hostName = ucfirst(strtolower($listing->host_name));
-    $hostSince = ucfirst(strtolower($listing->host_since));
-    $hostAbout = ucfirst(strtolower($listing->host_about));
-    $hostResponseRate = ucfirst(strtolower($listing->host_response_rate));
-
+    
+    //$image = $listing['picture_url'];
+    //$imageData = base64_encode(file_get_contents($image));
+    
     // Here we present that information to the user
     echo '<div class="ds-row">
     <div class="ds-col-6 ds-shadow-floating ds-bg-neutral-2">
-    <h3 class="ds-heading-2 ds-margin-t-2">' . $listing->name . ' </h3>
+    <h3 class="ds-heading-2 ds-margin-t-2"> ' . $listing['name'] . ' : ' . $listing['price'] . ' </h3>
     <div class="ds-hr-thick"></div>
-    <h4 class="ds-heading-3 ds-margin-t-b-2">' . $listing->review_scores_value . '</h4>
+    <h4 class="ds-heading-3 ds-margin-t-b-2">' . $listing['property_type'] . '</h4>
     <p class="ds-margin-b-2">
-    ' . $propertyName . '<br />
-    ' . $description . '<br />
-    ' . $neighborhood . '<br />
-    ' . $propertyType . '<br />
-    ' . $bathrooms . '<br />
-    ' . $bedrooms . '<br />
-    ' . $beds . '<br />
-    ' . $price . '<br />
+    Description: ' . $listing['description'] . '. <br />
+    <br />
+    Neighbourhood Overview: ' . $listing['neighborhood_overview'] . ' <br />
+    <br />
+    Bathrooms: ' . $listing['bathrooms_text'] . ' <br />
+    Bedrooms: ' . $listing['bedrooms'] . ' <br />
+    Beds: ' . $listing['beds'] . ' <br />
+    Accommodates: ' . $listing['accommodates'] . ' 
     </p>
-    <h4 class="ds-heading-3">Host Info</h4>
+    <h4 class="ds-heading-3">About the Host:</h4>
     <div class="ds-table-container">
     <table class="ds-table ds-table-compact">
-    <tr><th>Host\'s Name</th><th>Host Since</th><th>About</th></tr>
-        <tr><td class="ds-text-align-right">$' . $listing->host_name . '</td><td class="ds-text-align-right">$' . $listing->host_since . '</td><td class="ds-text-align-right">$' . $listing->host_about . '</td></tr>
-            <tr><td>&nbsp</td><td class="ds-text-align-right">Response Rate:</td><td class="ds-text-align-right">$' . $hostResponseRate . '</td></tr>
-    </table>  
+    <tr><th>Name</th><th>Location</th><th>Response Time</th></tr>
+    <tr><td class="ds-text-align-right">' . $listing['host_name'] . '</td><td class="ds-text-align-right">' . $listing['host_location'] . '</td><td class="ds-text-align-right">' . $listing['host_response_time'] . '</td></tr>
+    <tr><td>&nbsp</td><td class="ds-text-align-right">Acceptance Rate:</td><td class="ds-text-align-right">' . $listing['host_acceptance_rate'] . '</td></tr>
+    </table>
     <p class="ds-margin-b-2">&nbsp</p>
     </div></div></div>
+    
     ';
+    
+    //echo '<img src="data:image/jpeg;base64, ' . $imageData . ' ">';
+    
 }
 
 
