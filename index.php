@@ -13,7 +13,8 @@ echo '<h2 class="ds-heading-1 ds-col-10">Chicago Airbnb Listing Info.</h2>
 
 // Start with the listing information - we use the API endpoint 
 $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
-$rperfresponse = $rperfclient->request('GET', 'findall');
+//$rperfresponse = $rperfclient->request('GET', 'findall');
+$rperfresponse = $rperfclient->request('GET', 'findall?id=' . $_GET['id']);
 $content = $rperfresponse->getBody();
 $jsonContent = json_decode($content, false);
 $listing = $jsonContent[0];
