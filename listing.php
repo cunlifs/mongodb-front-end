@@ -19,25 +19,23 @@ We have called against another API endpoint to pull this data from our database.
 
 // Start with the listing information - we use the API endpoint 
 $rperfclient = new GuzzleHttp\Client([ 'base_uri'=>$apiBaseUri]);
-$rperfresponse = $rperfclient->request('GET', 'findListingInfo?id=' . $_GET['id']);
+$rperfresponse = $rperfclient->request('GET', 'findall?id=' . $_GET['id']);
 $content = $rperfresponse->getBody();
-$jsonContent = json_decode($content, false);
+$jsonContent = json_decode($content, true);
 $listing = $jsonContent[0];
 renderListing($listing);
-
+/*
 if ($jsonContent->success == 1) {
-    $listing = $jsonContent->data[0];
-
+    $listing = $jsonContent[0];
     // Now we can render our page using that data
     // The renderListing function can be found in functions.php
     renderListing($listing);
-
 // If the lookup fails, provide information
 } else {
     echo '<div class="ds-margin-t-b-2">API call to look up listing has failed.
     ' . print_r($jsonContent) . '
     </div>';
-}
+} */
 
 // Include a way to return to the previous page
 echo '<br />
